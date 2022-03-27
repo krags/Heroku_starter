@@ -1,8 +1,9 @@
-from .settings_aws import *
-from .settings_db import *
+#from .settings_aws import *
+#from .settings_db import *
 import os
-import django_heroku
 from decouple import config
+import django_on_heroku
+import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 print('BASE_DIR -> ', BASE_DIR)
@@ -11,7 +12,9 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['.keithragsdale.com']
+#ALLOWED_HOSTS = ['','keithragsdale.com']
+ALLOWED_HOSTS = []
+
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -70,31 +73,31 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Heroku Logging
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
-            'datefmt': "%d/%b/%Y %H:%M:%S"
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
-    },
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'MYAPP': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-        },
-    }
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {
+#         'verbose': {
+#             'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+#             'datefmt': "%d/%b/%Y %H:%M:%S"
+#         },
+#         'simple': {
+#             'format': '%(levelname)s %(message)s'
+#         },
+#     },
+#     'handlers': {
+#         'console': {
+#             'level': 'DEBUG',
+#             'class': 'logging.StreamHandler',
+#         },
+#     },
+#     'loggers': {
+#         'MYAPP': {
+#             'handlers': ['console'],
+#             'level': 'DEBUG',
+#         },
+#     }
+# }
 
 
 LANGUAGE_CODE = "en-us"
@@ -103,9 +106,18 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+print(BASE_DIR)
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#added last ->
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_URL = "/static/"
 
-django_heroku.settings(locals())
-
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+# Database setup
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(config('DATABASE_URL'))
+django_on_heroku.settings(locals())
+#del DATABASES['default']['OPTIONS']['sslmode']
+#del DATABASES['default']['sslmode']
+
