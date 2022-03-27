@@ -13,7 +13,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = True
 
 #ALLOWED_HOSTS = ['','keithragsdale.com']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['keithragsdale.com']
 
 
 INSTALLED_APPS = [
