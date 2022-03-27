@@ -1,3 +1,8 @@
+3-27-22
+Removed django-heroku==0.3.1 from requirements
+Added django-on-heroku.
+Created settings_aws and settings_db.
+
 3-26-22
 Loaded to Heroku at 11:40 Saturday and the site runs.
 The main page prints "My stuff"
