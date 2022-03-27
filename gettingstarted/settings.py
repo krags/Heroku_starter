@@ -1,4 +1,4 @@
-#from .settings_aws import *
+from .settings_aws import *
 #from .settings_db import *
 import os
 from decouple import config
@@ -115,9 +115,9 @@ STATIC_URL = "/static/"
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # Database setup
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config(config('DATABASE_URL'))
-django_on_heroku.settings(locals())
+# DATABASES = {}
+# DATABASES['default'] = dj_database_url.config(config('DATABASE_URL'))
+# django_on_heroku.settings(locals())
 #del DATABASES['default']['OPTIONS']['sslmode']
 #del DATABASES['default']['sslmode']
 

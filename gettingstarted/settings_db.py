@@ -9,7 +9,7 @@ DATABASES = {}
 
 DATABASES['default'] = dj_database_url.config(config('DATABASE_URL'))
 django_on_heroku.settings(locals())
-del DATABASES['default']['OPTIONS']['sslmode']
+#del DATABASES['default']['OPTIONS']['sslmode']
 
 
 # DATABASES = {
