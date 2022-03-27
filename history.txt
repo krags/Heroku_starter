@@ -1,0 +1,12 @@
+3-26-22
+Loaded to Heroku at 11:40 Saturday and the site runs.
+The main page prints "My stuff"
+
+git:
+keith   https://git.heroku.com/agile-gorge-76642.git (fetch)
+keith   https://git.heroku.com/agile-gorge-76642.git (push)
+origin  https://github.com/krags/Heroku_starter.git (fetch)
+origin  https://github.com/krags/Heroku_starter.git (push)
+
+The content was created using the heroku getting started code.
+agile-gorge does not have any variables set and is not using Amazon or S3.
