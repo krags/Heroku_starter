@@ -13,7 +13,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = True
 
 #ALLOWED_HOSTS = ['','keithragsdale.com']
-ALLOWED_HOSTS = ['keithragsdale.com', 'agile-gorge-76642.herokuapp.com']
+ALLOWED_HOSTS = ['localhost','keithragsdale.com', 'agile-gorge-76642.herokuapp.com']
 
 
 INSTALLED_APPS = [
@@ -115,9 +115,9 @@ STATIC_URL = "/static/"
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # Database setup
-# DATABASES = {}
-# DATABASES['default'] = dj_database_url.config(config('DATABASE_URL'))
-# django_on_heroku.settings(locals())
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(config('DATABASE_URL'))
+django_on_heroku.settings(locals())
 #del DATABASES['default']['OPTIONS']['sslmode']
 #del DATABASES['default']['sslmode']
 
