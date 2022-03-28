@@ -13,7 +13,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = True
 
 #ALLOWED_HOSTS = ['','keithragsdale.com']
-ALLOWED_HOSTS = ['keithragsdale.com']
+ALLOWED_HOSTS = ['keithragsdale.com', 'agile-gorge-76642.herokuapp.com']
 
 
 INSTALLED_APPS = [
