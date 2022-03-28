@@ -1,5 +1,4 @@
 from .settings_aws import *
-#from .settings_db import *
 import os
 from decouple import config
 import django_on_heroku
@@ -12,9 +11,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = True
 
-#ALLOWED_HOSTS = ['','keithragsdale.com']
 ALLOWED_HOSTS = ['localhost','keithragsdale.com', 'agile-gorge-76642.herokuapp.com']
-
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -73,32 +70,31 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Heroku Logging
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'formatters': {
-#         'verbose': {
-#             'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
-#             'datefmt': "%d/%b/%Y %H:%M:%S"
-#         },
-#         'simple': {
-#             'format': '%(levelname)s %(message)s'
-#         },
-#     },
-#     'handlers': {
-#         'console': {
-#             'level': 'DEBUG',
-#             'class': 'logging.StreamHandler',
-#         },
-#     },
-#     'loggers': {
-#         'MYAPP': {
-#             'handlers': ['console'],
-#             'level': 'DEBUG',
-#         },
-#     }
-# }
-
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt': "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'MYAPP': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    }
+}
 
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
@@ -106,11 +102,11 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-print(BASE_DIR)
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#added last ->
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = "/static/"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
